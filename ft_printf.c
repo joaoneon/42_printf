@@ -14,7 +14,7 @@
 #include <stdio.h>
 #include <unistd.h>
 
-int	variable_converter(char c, int counter, va_list list);
+int	variable_converter(char* str, int index, va_list list);
 int	put_char(char c);
 int	put_string(char *str);
 int	put_pointer(long nbr, char *base);
@@ -33,7 +33,7 @@ int	ft_printf(const char *str, ...)
 	int		counter;
 
 	if (str == NULL)
-		return (0);
+		return (-1);
 	va_start(list, str);
 	index = -1;
 	counter = 0;
@@ -42,31 +42,35 @@ int	ft_printf(const char *str, ...)
 		if (str[index] == '%')
 		{
 			index++;
-			counter += variable_converter(str[index], counter, list);
-            index++;
+			counter += variable_converter((char *)str, index, list);
         }
-		counter+= put_char(str[index]);
+		else
+			counter+= put_char(str[index]);
 	}
-	printf("\n%i\n", counter);
+	va_end(list);
+	// printf("\n%i\n", counter);
 	return (counter);
 }
 
 // cspdiuxX%
-int	variable_converter(char c, int counter, va_list list)
+int	variable_converter(char *str, int index, va_list list)
 {
-	if (c == 'c')
+	int counter;
+	counter = 0;
+
+	if (str[index] == 'c')
 		counter += put_char(va_arg(list, int));
-	else if (c == 's')
+	else if (str[index] == 's')
 		counter += put_string(va_arg(list, char *));
-	else if (c == 'p')
+	else if (str[index] == 'p')
 		counter += pointer_all(va_arg(list, unsigned long), LOW_BASE);
-	else if (c == 'd' || c == 'i')
+	else if (str[index] == 'd' || str[index] == 'i')
 		counter += put_integer(va_arg(list, int));
-	else if (c == 'u')
+	else if (str[index] == 'u')
 		counter += put_unsigint(va_arg(list, unsigned int));
-    else if (c == 'x' || c == 'X')
-        counter += put_hex(va_arg(list, int), c);
-    else if (c == '%')
+    else if (str[index] == 'x' || str[index] == 'X')
+        counter += put_hex(va_arg(list, int), str[index]);
+    else if (str[index] == '%')
         counter += put_char('%');
 	return (counter);
 }
@@ -181,14 +185,18 @@ int     put_hex(unsigned int nbr, char c)
     return (counter);
 }
 
-// int	main(void)
-// {
-//     printf("%d\n", ft_printf("teste %x oizin\n", 1425));
-//     printf("teste %x oizin", 1425);
+int	main(void)
+{
+    // printf("%d\n", ft_printf("teste %x oizin\n", 1425));
+    // printf("teste %x oizin", 1425);
 
+	printf("\n%i\n", ft_printf("Eu ando %x, passos por dia", 2000));
+	printf("\n%i\n", printf("Eu ando %x, passos por dia", 2000));
 
-// 	return (0);
-// }
+	// printf("\n%i", printf("lord %i, cm", 20));
+
+	return (0);
+}
 
 //  int main(void)
 //     {
