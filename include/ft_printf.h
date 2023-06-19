@@ -6,7 +6,7 @@
 /*   By: jpedro-a <jpedro-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 17:47:20 by jpedro-a          #+#    #+#             */
-/*   Updated: 2023/06/19 17:47:30 by jpedro-a         ###   ########.fr       */
+/*   Updated: 2023/06/19 18:06:34 by jpedro-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,6 @@ int	put_string(char *str);
 int	pointer_all(unsigned long nbr, char *base);
 int	put_integer(int nbr);
 int	put_unsigint(unsigned int nbr);
-int	put_hex(unsigned int nbr, char c);
+int	put_hex(unsigned int nbr, char *str, int index, int check);
 
 #endif
