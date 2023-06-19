@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   put_integer.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jpedro-a <jpedro-a@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/19 17:45:20 by jpedro-a          #+#    #+#             */
+/*   Updated: 2023/06/19 17:45:21 by jpedro-a         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 int	put_integer(int nbr)
@@ -14,6 +26,7 @@ int	put_integer(int nbr)
 	{
 		counter += put_char('-');
 		nbr *= -1;
+		counter += put_integer(nbr);
 	}
 	else if (nbr > 9)
 	{

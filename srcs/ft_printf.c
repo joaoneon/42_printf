@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jpedro-a <jpedro-a@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/19 17:45:45 by jpedro-a          #+#    #+#             */
+/*   Updated: 2023/06/19 17:45:49 by jpedro-a         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 static int	variable_converter(char *str, int index, va_list list);
@@ -19,9 +31,9 @@ int	ft_printf(const char *str, ...)
 		{
 			index++;
 			counter += variable_converter((char *)str, index, list);
-        }
+		}
 		else
-			counter+= put_char(str[index]);
+			counter += put_char(str[index]);
 	}
 	va_end(list);
 	return (counter);
@@ -29,9 +41,9 @@ int	ft_printf(const char *str, ...)
 
 static int	variable_converter(char *str, int index, va_list list)
 {
-	int counter;
-	counter = 0;
+	int	counter;
 
+	counter = 0;
 	if (str[index] == 'c')
 		counter += put_char(va_arg(list, int));
 	else if (str[index] == 's')
@@ -42,9 +54,9 @@ static int	variable_converter(char *str, int index, va_list list)
 		counter += put_integer(va_arg(list, int));
 	else if (str[index] == 'u')
 		counter += put_unsigint(va_arg(list, unsigned int));
-    else if (str[index] == 'x' || str[index] == 'X')
-        counter += put_hex(va_arg(list, int), str[index]);
-    else if (str[index] == '%')
+	else if (str[index] == 'x' || str[index] == 'X')
+		counter += put_hex(va_arg(list, int), str[index]);
+	else if (str[index] == '%')
 		counter += put_char('%');
 	return (counter);
 }
