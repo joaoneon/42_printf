@@ -55,7 +55,7 @@ static int	variable_converter(char *str, int index, va_list list)
 	else if (str[index] == 'p')
 		counter += pointer_all(va_arg(list, unsigned long), LOW_BASE);
 	else if (str[index] == 'd' || str[index] == 'i')
-		counter += put_integer(va_arg(list, int), char *str, int index, 1);
+		counter += put_integer(va_arg(list, int), str, index, 1);
 	else if (str[index] == 'u')
 		counter += put_unsigint(va_arg(list, unsigned int));
 	else if (str[index] == 'x' || str[index] == 'X')

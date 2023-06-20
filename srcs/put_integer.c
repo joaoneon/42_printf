@@ -12,14 +12,14 @@
 
 #include "ft_printf.h"
 
-static int flagchecker(int nbr, char *str, int index);
+static int flagchecker(char *str, int index);
 int	put_integer(int nbr, char *str, int index, int check)
 {
 	int	counter;
 
 	counter = 0;
 	if (check == 1 && nbr >= 0)
-		counter+= flagchecker(nbr, str, index);
+		counter+= flagchecker(str, index);
 	check = 0;
 	if (nbr == -2147483648)
 	{
@@ -42,7 +42,7 @@ int	put_integer(int nbr, char *str, int index, int check)
 	return (counter);
 }
 
-static int flagchecker(int nbr, char *str, int index)
+static int flagchecker(char *str, int index)
 {
 	int counter;
 	counter = 0;
