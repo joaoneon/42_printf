@@ -23,7 +23,7 @@ int	ft_printf(const char *str, ...);
 int	put_char(char c);
 int	put_string(char *str);
 int	pointer_all(unsigned long nbr, char *base);
-int	put_integer(int nbr);
+int	put_integer(int nbr, char *str, int index, int check);
 int	put_unsigint(unsigned int nbr);
 int	put_hex(unsigned int nbr, char *str, int index, int check);
 

@@ -24,8 +24,8 @@ int	put_hex(unsigned int nbr, char *str, int index, int check)
 				counter += put_string("0x");
 			else
 				counter+= put_string("0X");
-			check = 0;
 		}
+		check = 0;
 	if (str[index] == 'x')
 	{
 		if (nbr > 15)
