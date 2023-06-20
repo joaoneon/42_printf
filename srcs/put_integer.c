@@ -6,20 +6,21 @@
 /*   By: jpedro-a <jpedro-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 17:45:20 by jpedro-a          #+#    #+#             */
-/*   Updated: 2023/06/19 17:45:21 by jpedro-a         ###   ########.fr       */
+/*   Updated: 2023/06/20 15:08:57 by jpedro-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int flagchecker(char *str, int index);
+static int	flagchecker(char *str, int index);
+
 int	put_integer(int nbr, char *str, int index, int check)
 {
 	int	counter;
 
 	counter = 0;
 	if (check == 1 && nbr >= 0)
-		counter+= flagchecker(str, index);
+		counter += flagchecker(str, index);
 	check = 0;
 	if (nbr == -2147483648)
 	{
@@ -42,11 +43,12 @@ int	put_integer(int nbr, char *str, int index, int check)
 	return (counter);
 }
 
-static int flagchecker(char *str, int index)
+static int	flagchecker(char *str, int index)
 {
-	int counter;
+	int	counter;
+
 	counter = 0;
-	if (str[index - 1] == ' ' || str[index -1] == '+')
+	if (str[index - 1] == ' ' || str[index - 1] == '+')
 		counter += put_char(str[index - 1]);
 	return (counter);
 }
