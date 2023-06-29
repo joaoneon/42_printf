@@ -1,9 +1,10 @@
 <h1 align="center">
   42_printf
 </h1>
-<p align="center>
-  <img src="https://github.com/joaoneon/42_printf/assets/6489188/e0f404d3-1438-4f30-a6db-92553e3a21d1">
+<p align="center">
+  <img src="https://github.com/joaoneon/42_printf/assets/6489188/771e299a-abea-4874-ae2f-90c718ecd248">
 </p>
+
 <h3 align="left">
 About the project:
 </h3>
@@ -29,7 +30,7 @@ This repository contains the entire codebase for the ft_printf project, encompas
   <p align="left">
 Re-code the printf() function, from the libc. The function must be able to handle the following conversions: c, s, p, d, i, u, x, X, and %.
   </p>
-  <table align="left">
+  <table align>
   <tr>
     <td>Conversion</td>
     <td>Description</td>
@@ -71,14 +72,15 @@ Re-code the printf() function, from the libc. The function must be able to handl
     <td>Output the "%" character</td>
   </tr>
   </table>
-
+<br>
 <h3 align="left">
   Bonus
 </h3>
+
 <p align="left">
 Re-implement certain flags of the original printf function.
 </p>
- <table align="left">
+ <table align>
   <tr>
     <td>Conversion</td>
     <td>Description</td>
@@ -116,7 +118,7 @@ Re-implement certain flags of the original printf function.
   </p>
   <ul>
   <li>
-  - $> git clone git@github.com:joaoneon/42_printf.git [folder]
+  - $> git clone https://github.com/joaoneon/42_printf.git [folder]
   </ul>
   </li>
   
